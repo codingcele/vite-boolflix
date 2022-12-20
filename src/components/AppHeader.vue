@@ -1,6 +1,35 @@
 <script>
+import { store } from "../store.js";
+import axios from "axios";
+
 export default {
     name: "AppHeader",
+    data() {
+        return {
+            store,
+        }
+    },
+    methods: {
+        getFilms() {
+            let link = store.apiURL + this.valore;
+            console.log(link);
+            axios
+                .get(link)
+                .then(res => {
+                    store.filmsList = res;
+                })
+            console.log(this.valore);
+
+
+            /* .catch(err => {
+                console.log("Errori", err);
+            }
+            ); */
+        }
+    },
+    mounted() {
+        this.getFilms();
+    }
 }
 
 </script>
@@ -11,8 +40,8 @@ export default {
             BoolFlix
         </div>
         <div class="search">
-            <input class="searchbar" type="text" placeholder="Type here to search">
-            <input class="searchbutton" type="button" value="Search">
+            <input class="searchbar" type="text" placeholder="Type here to search" v-model="valore">
+            <input class="searchbutton" type="button" value="Search" @click="getFilms">
         </div>
 
     </header>

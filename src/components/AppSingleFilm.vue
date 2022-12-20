@@ -10,9 +10,8 @@ export default {
     <section class="container">
         <div class="row">
             <div>
-                <img src="info.image" alt="">
                 <h3>
-                    {{ info.name }}
+                    {{ info.title }}
                 </h3>
                 <h4>
 
