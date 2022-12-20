@@ -9,15 +9,18 @@ export default {
 <template>
     <section class="container">
         <div class="row">
-            <div>
+            <div class="center">
                 <h3>
                     {{ info.title }}
                 </h3>
                 <h4>
-
+                    {{ info.original_title }}
                 </h4>
                 <h4>
-
+                    {{ info.original_language }}
+                </h4>
+                <h4>
+                    {{ info.vote_average }}
                 </h4>
             </div>
         </div>

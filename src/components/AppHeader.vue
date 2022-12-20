@@ -11,15 +11,13 @@ export default {
     },
     methods: {
         getFilms() {
-            let link = store.apiURL + this.valore;
-            console.log(link);
             axios
-                .get(link)
+                .get(store.apiURL + this.valore)
                 .then(res => {
-                    store.filmsList = res;
+                    store.filmsList = res.data.results;
                 })
+            console.log(store.filmsList);
             console.log(this.valore);
-
 
             /* .catch(err => {
                 console.log("Errori", err);
@@ -55,6 +53,7 @@ header {
     padding: 30px 100px;
     justify-content: space-between;
     background-color: black;
+    height: 15vh;
 
     .boolflix {
         font-size: 30px;
